@@ -33,9 +33,7 @@
             </div>
             <div class="second-box flex">
                 <div class="div block-of-elements column">
-                    <div class="div element p-1"><h2 class="shortcut-title text-center">Windows ShortCuts</h2></div>
-                    <div class="div element p-1"><h2 class="shortcut-title text-center">Browser ShortCuts</h2></div>
-                    <div class="div element p-1"><h2 class="shortcut-title text-center">Most Common ShortCuts</h2></div>
+                    <!--<div class="div element p-1"><h2 class="shortcut-title text-center">Windows ShortCuts</h2></div>-->
                 </div>
             </div>
         </div>
@@ -45,9 +43,22 @@
     <section class="section-two flex" id="section-two">
         <div class="container flex">
             <ul id="shortcut-list">
+                <p id="text-content"></p>
             </ul>
         </div>
     </section>
+
+    <script>
+        fetch('text.txt')
+            .then(response => response.text())
+            .then(text => {
+                document.getElementById('text-content').textContent = text;
+            })
+            .catch(error => console.log('Error:', error));
+    </script>
+
+
+
 
     <script src="index.js"></script>
 </body>
