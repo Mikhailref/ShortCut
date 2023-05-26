@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+80s+Fade&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karantina&display=swap');
+@import url('animation.css');
+
+:root{
+    --primary-color:#272727;
+    --secondary-color:#747474;
+    --light-color:#ffffff;
+    --red-color:#f63232;
+    --orange-dark-color:#FFBD59;
+    --yellow-color:#FFE400;
+    --green-color:#14A76C;
+    --shadow-black:rgba(0, 0, 0, 0.5);
+}
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  *{
+    margin: 0px;
+    padding:0;
+  }
+
+  /*html, body {
+    height: 100%;
+    width: 100%;
+  }*/
+
+  html{
+    height: 200%;
+   /* border:solid #f63232;*/
+  }
+
+  body{
+    height: 100%;
+    Font-family: 'Oswald', sans-serif;
+    Font-Size: 20px;
+    color:white;
+    line-height: 1.6;
+    background-color:black;   
+    background-image: url("assets/images/background.jpg");
+    background-size:cover;
+    background-position: center;
+    background-repeat:no-repeat;
+    
+    
+}
+
+ul{
+    list-style-type:none;
+}
+
+a{
+    text-decoration: none;
+    color:white;
+    text-shadow: 2px 3px black;
+}
+
+i{
+    color: white;
+    /*font-size: 50px;*/
+    cursor: pointer;
+}
+
+img,video{
+    max-width: 100%;
+    height: auto;
+}
+
+h1,h2,h3{
+    line-height:1.2;
+}
+
+
+p{
+    font-weight: 500;
+}
+
+i{
+    color:white;
+    /*font-size: 50px;*/
+    cursor: pointer;
+}
+
+
+/*Elements*/
+.watsapp{
+    position: fixed;
+    bottom:40px;
+    right: 20px;
+    z-index: 100;
+}
+
+.watsapp:hover{
+    margin-top: 10px;
+}
+
+/*.side-panel{
+    transform: rotate(-90deg);
+    transform-origin: right; 
+    position: fixed;
+    bottom:500px;
+    right: 40px;
+    z-index: 100;
+
+}
+
+.side-panel .adress{
+    /*writing-mode: sideways-rl;
+    direction:rtl;
+}*/
+
+/*Background*/
+
+
+/*Navigation*/
+.navigation{
+    height: 130px;
+
+}
+
+.navigation .navbar{
+    justify-content:space-between;
+}
+
+.navigation .navbar .logo {
+    flex-shrink: 0;
+    flex-basis: 200px;
+    padding: 10px;
+    
+}
+
+.navigation .logo .name{
+    width: 150px;
+    direction:rtl;
+    font-weight: 100;
+    font-family: 'Karantina', cursive;
+    color: var(--light-color);
+    /*text-shadow: 1px 1px var(--light-color);*/
+    animation: slideInFromLeft 0.8s ease-in 0s forwards,
+    pulse 2s linear infinite 3s forwards;
+
+}
+
+
+.navigation .links{
+    flex-basis: 70%;
+    flex-shrink: 1;
+    flex-wrap:wrap;
+}
+
+.navigation li{
+    padding: 5px 30px 0 0;
+    flex-basis: 80px;
+    flex-shrink: 0;
+    flex-grow: 1;
+    font-weight:700 ;
+}
+
+
+/*Section-One*/
+.section-one{
+    height: 30%;
+
+    
+}
+
+.section-one .container{
+    width: 100%;
+    justify-content: space-between;
+}
+
+.section-one .container .first-box .motto{
+    flex-basis: 200px;
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+.section-one .container .first-box{
+    flex-basis: 60%;
+}
+
+.section-one .container .second-box {
+    flex-basis: 38%;
+    height: 100%;
+    background-color: #062137bd;
+}
+
+.section-one .container .second-box .column{
+   height: 100%;
+   flex-basis: 100%;
+   align-items: center;
+}
+
+.section-one .container .second-box .element{
+ width: 100%;
+}
+
+
+
+
+
+/*Section-Two*/
+#section-two{
+    justify-content: center;
+}
+
+.section-two .container{
+    margin: 0;
+    flex-basis: 80%;
+    justify-content: flex-start;
+   
+}
+
+#shortcut-list {
+    padding: 0;
+    margin: 0;
+}
+
+#shortcut-list li {
+    flex-basis: calc(33.33% - 20px); /* Adjust the percentage as needed */
+    margin: 10px;
+    text-align: center;
+}
