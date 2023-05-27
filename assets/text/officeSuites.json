@@ -1,0 +1,55 @@
+{
+    "officeSuites": [
+      {
+        "name": "Microsoft Office",
+        "shortcuts": [
+          {
+            "name": "Copy",
+            "shortcut": "Ctrl + C"
+          },
+          {
+            "name": "Paste",
+            "shortcut": "Ctrl + V"
+          },
+          {
+            "name": "Undo",
+            "shortcut": "Ctrl + Z"
+          },
+          {
+            "name": "Save",
+            "shortcut": "Ctrl + S"
+          },
+          {
+            "name": "Print",
+            "shortcut": "Ctrl + P"
+          }
+        ]
+      },
+      {
+        "name": "LibreOffice",
+        "shortcuts": [
+          {
+            "name": "Copy",
+            "shortcut": "Ctrl + C"
+          },
+          {
+            "name": "Paste",
+            "shortcut": "Ctrl + V"
+          },
+          {
+            "name": "Undo",
+            "shortcut": "Ctrl + Z"
+          },
+          {
+            "name": "Save",
+            "shortcut": "Ctrl + S"
+          },
+          {
+            "name": "Print",
+            "shortcut": "Ctrl + P"
+          }
+        ]
+      }
+    ]
+  }
+  

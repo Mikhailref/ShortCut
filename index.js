@@ -1,125 +1,278 @@
+  /*
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    var container = document.querySelector('.block-of-elements.column');
+  
+    function createTitles() {
+      var titles = ['Operating Systems', 'Office Suites', 'Web Browsers', 'Graphic Design', 'Code Editors', 'Social Media', 'Video Conferencing'];
+  
+      titles.forEach(function(title, index) {
+        var newDiv = document.createElement('div');
+        newDiv.className = 'div element p-1';
+  
+        var newH2 = document.createElement('h2');
+        newH2.className = 'shortcut-title text-left';
+        newH2.textContent = title;
+  
+        newDiv.appendChild(newH2);
+        container.appendChild(newDiv);
+
+      });
+    }
+
+    createTitles();
+  
+
+
+    // New function to create expandable menus
+    function createExpandableMenus() {
+      var divs = document.querySelectorAll('.div.element');
+  
+      divs.forEach(function(div) {
+        var expandableMenu = document.createElement('ul');
+        expandableMenu.className = 'expandable-menu';
+  
+        // Add sample menu items
+        var menuItems = ['Option 1', 'Option 2', 'Option 3'];
+        menuItems.forEach(function(item) {
+          var menuItem = document.createElement('li');
+          menuItem.textContent = item;
+          menuItem.addEventListener('click', function(event) {
+            handleMenuItemClick(event);
+          });
+          expandableMenu.appendChild(menuItem);
+        });
+  
+        // Initially hide the expandable menu
+        expandableMenu.style.display = 'none';
+  
+        div.appendChild(expandableMenu);
+      });
+    }
+  
+    function toggleExpandableMenu(div) {
+      var expandableMenu = div.querySelector('.expandable-menu');
+      expandableMenu.style.display = (expandableMenu.style.display === 'none') ? 'block' : 'none';
+    }
+  
+
+    function handleMenuItemClick(event) {
+    var menuItem = event.target;
+    var selectedOption = menuItem.textContent;
+    var shortcutList = document.getElementById('shortcut-list');
+  
+    // Clear the existing content
+    shortcutList.innerHTML = '';
+  
+    // Create a new <li> element with the selected option's text
+    var li = document.createElement('li');
+    li.textContent = selectedOption + ' hello';
+  
+    // Append the new <li> to the shortcut list
+    shortcutList.appendChild(li);
+  
+    }  
+
+    createExpandableMenus();
+  
+
+    // Add click event listener to titles
+    var titles = document.querySelectorAll('.shortcut-title');
+    titles.forEach(function(title) {
+      title.addEventListener('click', function() {
+        var parentDiv = title.parentElement;
+        toggleExpandableMenu(parentDiv);
+      });
+    });
+  });
+  
+*/
+
+
+
+
+/*
+
 document.addEventListener('DOMContentLoaded', function() {
     var container = document.querySelector('.block-of-elements.column');
-    var shortcutList = document.getElementById('shortcut-list');
-    var textContent = document.getElementById('text-content');
-
-
+  
     function createTitles() {
-        var titles = ['Windows Shortcuts','Browser Shortcuts', 'Most Common Shortcuts'];
+      var titles = ['Operating Systems', 'Office Suites', 'Web Browsers', 'Graphic Design', 'Code Editors', 'Social Media', 'Video Conferencing'];
   
-        titles.forEach(function(title, index) {
-          var newDiv = document.createElement('div');
-          newDiv.className = 'div element p-1';
+      titles.forEach(function(title, index) {
+        var newDiv = document.createElement('div');
+        newDiv.className = 'div element p-1';
   
-          var newH2 = document.createElement('h2');
-          newH2.className = 'shortcut-title text-center';
-          newH2.textContent = title;
+        var newH2 = document.createElement('h2');
+        newH2.className = 'shortcut-title text-left';
+        newH2.textContent = title;
   
-          newDiv.appendChild(newH2);
-          container.appendChild(newDiv);
+        newDiv.appendChild(newH2);
+        container.appendChild(newDiv);
+      });
+    }
+  
+    createTitles();
+  
+    // Fetch data from JSON file
+    fetch('assets/text/operatingSystems.json')
+      .then(response => response.json())
+      .then(data => {
+        var operatingSystems = data.operatingSystems;
+        createExpandableMenus(operatingSystems);
+      })
+      .catch(error => console.log('Error:', error));
+  
+    // New function to create expandable menus
+    function createExpandableMenus(operatingSystems) {
+      var div = document.querySelector('.div.element:first-child');
+      var expandableMenu = document.createElement('ul');
+      expandableMenu.className = 'expandable-menu';
+  
+      operatingSystems.forEach(function(operatingSystem) {
+        var menuItem = document.createElement('li');
+        menuItem.textContent = operatingSystem.name;
+        menuItem.addEventListener('click', function(event) {
+          handleMenuItemClick(event, operatingSystem.shortcuts);
         });
-      }
-      createTitles();
-
-
-    var shortcutData = [
-      {
-        className: 'div element p-1',
-        h2ClassName: 'shortcut-title text-center',
-        description: 'This is the description for Windows Shortcuts.',
-        shortcuts: [
-          'Copy: Ctrl + C',
-          'Paste: Ctrl + V',
-          'Cut: Ctrl + X',
-          'Undo: Ctrl + Z',
-          'Save: Ctrl + S',
-          'Print: Ctrl + P',
-          'Select All: Ctrl + A',
-          'Find: Ctrl + F',
-          'Task Manager: Ctrl + Shift + Esc',
-          'Switch between open programs: Alt + Tab'
-        ]
-      },
-      {
-        className: 'div element p-1',
-        h2ClassName: 'shortcut-title text-center',
-        description: 'This is the description for Browser Shortcuts.',
-        shortcuts: [
-          'Open new tab: Ctrl + T',
-          'Close current tab: Ctrl + W',
-          'Restore closed tab: Ctrl + Shift + T',
-          'Go to next tab: Ctrl + Tab',
-          'Go to previous tab: Ctrl + Shift + Tab',
-          'Refresh page: Ctrl + R',
-          'Open find dialog: Ctrl + F',
-          'Open history: Ctrl + H',
-          'Open developer tools: Ctrl + Shift + I',
-          'Toggle full screen: F11'
-        ]
-      },
-      {
-        className: 'div element p-1',
-        h2ClassName: 'shortcut-title text-center',
-        description: 'This is the description for Most Common Shortcuts.',
-        shortcuts: [
-          'Undo: Ctrl + Z',
-          'Redo: Ctrl + Y',
-          'Cut: Ctrl + X',
-          'Copy: Ctrl + C',
-          'Paste: Ctrl + V',
-          'Save: Ctrl + S',
-          'Select All: Ctrl + A',
-          'Find: Ctrl + F',
-          'Print: Ctrl + P',
-          'Refresh: F5'
-        ]
-      }
-    ];
-
-   
-
-    function addDescriptionAndShortcuts() {
-        const shortcutTitles = document.querySelectorAll('.shortcut-title');
-        const shortcutList = document.getElementById('shortcut-list');
-      
-        shortcutTitles.forEach((title, index) => {
-          title.addEventListener('click', (e) => {
-            const shortcutText = e.target.textContent;
-      
-            // Clear the existing shortcuts
-            shortcutList.innerHTML = '';
-      
-            if (shortcutText === 'Windows Shortcuts') {
-              shortcutData[index].shortcuts.forEach((shortcut) => {
-                const listItem = document.createElement('li');
-                listItem.textContent = shortcut;
-                shortcutList.appendChild(listItem);
-              });
-
-            } else if (shortcutText === 'Browser Shortcuts') {
-              shortcutData[index].shortcuts.forEach((shortcut) => {
-                const listItem = document.createElement('li');
-                listItem.textContent = shortcut;
-                shortcutList.appendChild(listItem);
-              });
-
-            } else if (shortcutText === 'Most Common Shortcuts') {
-              shortcutData[index].shortcuts.forEach((shortcut) => {
-                const listItem = document.createElement('li');
-                listItem.textContent = shortcut;
-                shortcutList.appendChild(listItem);
-              });
-            }
-            // Add more else if statements for additional options
-      
-          });
-        });
-      }
-      
-    addDescriptionAndShortcuts();
+        expandableMenu.appendChild(menuItem);
+      });
+  
+      // Initially hide the expandable menu
+      expandableMenu.style.display = 'none';
+  
+      div.appendChild(expandableMenu);
+    }
+  
+    function toggleExpandableMenu(div) {
+      var expandableMenu = div.querySelector('.expandable-menu');
+      expandableMenu.style.display = (expandableMenu.style.display === 'none') ? 'block' : 'none';
+    }
+  
+    function handleMenuItemClick(event, shortcuts) {
+      var shortcutList = document.getElementById('shortcut-list');
+  
+      // Clear the existing content
+      shortcutList.innerHTML = '';
+  
+      // Create new <li> elements for each shortcut
+      shortcuts.forEach(function(shortcut) {
+        var li = document.createElement('li');
+        li.textContent = shortcut.name + ': ' + shortcut.shortcut;
+        shortcutList.appendChild(li);
+      });
+    }
+  
+    // Add click event listener to titles
+    var titles = document.querySelectorAll('.shortcut-title');
+    titles.forEach(function(title) {
+      title.addEventListener('click', function() {
+        var parentDiv = title.parentElement;
+        toggleExpandableMenu(parentDiv);
+      });
+    });
   });
-
   
+*/
 
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    var container = document.querySelector('.block-of-elements.column');
+  
+    function createTitles() {
+      var titles = ['Operating Systems', 'Office Suites', 'Web Browsers', 'Graphic Design', 'Code Editors', 'Social Media', 'Video Conferencing'];
+  
+      titles.forEach(function(title, index) {
+        var newDiv = document.createElement('div');
+        newDiv.className = 'div element p-1';
+  
+        var newH2 = document.createElement('h2');
+        newH2.className = 'shortcut-title text-left';
+        newH2.textContent = title;
+  
+        newDiv.appendChild(newH2);
+        container.appendChild(newDiv);
+      });
+    }
+  
+    createTitles();
+  
+    // Fetch data from JSON files
+    Promise.all([
+      fetch('assets/text/operatingSystems.json').then(response => response.json()),
+      fetch('assets/text/officeSuites.json').then(response => response.json()),
+      fetch('assets/text/webBrowsers.json').then(response => response.json())
+      // Add more fetch requests for other JSON files
+    ])
+      .then(dataArr => {
+        var operatingSystems = dataArr[0].operatingSystems;
+        var officeSuites = dataArr[1].officeSuites;
+        var webBrowsers = dataArr[2].webBrowsers;
+        // Access other data arrays from the response
+  
+        createExpandableMenus(operatingSystems, 'Operating Systems');
+        createExpandableMenus(officeSuites, 'Office Suites');
+        createExpandableMenus(webBrowsers, 'Web Browsers');
+        // Create expandable menus for other data arrays
+      })
+      .catch(error => console.log('Error:', error));
+  
+    // New function to create expandable menus
+    function createExpandableMenus(data, category) {
+      var div = document.querySelector('.div.element.p-1');
+      var expandableMenu = document.createElement('ul');
+      expandableMenu.className = 'expandable-menu';
+  
+      data.forEach(function(item) {
+        var menuItem = document.createElement('li');
+        menuItem.textContent = item.name;
+        menuItem.addEventListener('click', function(event) {
+          handleMenuItemClick(event, item.shortcuts);
+        });
+        expandableMenu.appendChild(menuItem);
+      });
+  
+      // Initially hide the expandable menu
+      expandableMenu.style.display = 'none';
+  
+      var categoryDivs = document.querySelectorAll('.div.element.p-1');
+      categoryDivs.forEach(function(div) {
+        var title = div.querySelector('.shortcut-title');
+        if (title && title.textContent === category) {
+          div.appendChild(expandableMenu);
+        }
+      });
+    }
+  
+    function toggleExpandableMenu(div) {
+      var expandableMenu = div.querySelector('.expandable-menu');
+      if (expandableMenu) {
+        expandableMenu.style.display = (expandableMenu.style.display === 'none') ? 'block' : 'none';
+      }
+    }
+  
+    function handleMenuItemClick(event, shortcuts) {
+      var shortcutList = document.getElementById('shortcut-list');
+  
+      // Clear the existing content
+      shortcutList.innerHTML = '';
+  
+      // Create new <li> elements for each shortcut
+      shortcuts.forEach(function(shortcut) {
+        var li = document.createElement('li');
+        li.textContent = shortcut.name + ': ' + shortcut.shortcut;
+        shortcutList.appendChild(li);
+      });
+    }
+  
+    // Add click event listener to titles
+    var titles = document.querySelectorAll('.shortcut-title');
+    titles.forEach(function(title) {
+      title.addEventListener('click', function() {
+        var parentDiv = title.parentElement;
+        toggleExpandableMenu(parentDiv);
+      });
+    });
+  });
   

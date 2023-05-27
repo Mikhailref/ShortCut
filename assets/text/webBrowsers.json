@@ -1,0 +1,56 @@
+{
+    "webBrowsers": [
+      {
+        "name": "Google Chrome",
+        "shortcuts": [
+          {
+            "name": "Open Developer Tools",
+            "shortcut": "Ctrl + Shift + I"
+          },
+          {
+            "name": "Open Incognito Window",
+            "shortcut": "Ctrl + Shift + N"
+          },
+          {
+            "name": "Bookmark Current Page",
+            "shortcut": "Ctrl + D"
+          }
+        ]
+      },
+      {
+        "name": "Mozilla Firefox",
+        "shortcuts": [
+          {
+            "name": "Open Developer Tools",
+            "shortcut": "Ctrl + Shift + I"
+          },
+          {
+            "name": "Open Private Window",
+            "shortcut": "Ctrl + Shift + P"
+          },
+          {
+            "name": "Reload Current Page",
+            "shortcut": "Ctrl + R"
+          }
+        ]
+      },
+      {
+        "name": "Microsoft Edge",
+        "shortcuts": [
+          {
+            "name": "Open Developer Tools",
+            "shortcut": "Ctrl + Shift + I"
+          },
+          {
+            "name": "Open InPrivate Window",
+            "shortcut": "Ctrl + Shift + P"
+          },
+          {
+            "name": "Open New Tab",
+            "shortcut": "Ctrl + T"
+          }
+        ]
+      }
+    ]
+  }
+  

@@ -1,0 +1,80 @@
+{
+    "operatingSystems": [
+      {
+        "name": "Windows",
+        "shortcuts": [
+          {
+            "name": "Copy",
+            "shortcut": "Ctrl + C"
+          },
+          {
+            "name": "Paste",
+            "shortcut": "Ctrl + V"
+          },
+          {
+            "name": "Undo",
+            "shortcut": "Ctrl + Z"
+          },
+          {
+            "name": "Save",
+            "shortcut": "Ctrl + S"
+          },
+          {
+            "name": "Print",
+            "shortcut": "Ctrl + P"
+          }
+        ]
+      },
+      {
+        "name": "Linux",
+        "shortcuts": [
+          {
+            "name": "Copy",
+            "shortcut": "Ctrl + Shift + C"
+          },
+          {
+            "name": "Paste",
+            "shortcut": "Ctrl + Shift + V"
+          },
+          {
+            "name": "Undo",
+            "shortcut": "Ctrl + Z"
+          },
+          {
+            "name": "Save",
+            "shortcut": "Ctrl + S"
+          },
+          {
+            "name": "Print",
+            "shortcut": "Ctrl + P"
+          }
+        ]
+      },
+      {
+        "name": "Mac",
+        "shortcuts": [
+          {
+            "name": "Copy",
+            "shortcut": "Cmd + C"
+          },
+          {
+            "name": "Paste",
+            "shortcut": "Cmd + V"
+          },
+          {
+            "name": "Undo",
+            "shortcut": "Cmd + Z"
+          },
+          {
+            "name": "Save",
+            "shortcut": "Cmd + S"
+          },
+          {
+            "name": "Print",
+            "shortcut": "Cmd + P"
+          }
+        ]
+      }
+    ]
+  }
+  

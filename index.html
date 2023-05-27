@@ -18,18 +18,18 @@
                 <h3 class="name text-left xl">ShortCut</h3>
             </div>
             <ul class="links flex">
-                <li><a href="index.html"><h3 class="text-left md"> Home</h3></a></li>
+                <!--<li><a href="index.html"><h3 class="text-left md"> Home</h3></a></li>
                 <li><a href="gallery.html"><h3 class="text-left md">Gallery</h3></a></li>
-                <li><a href="about.html"><h3 class="text-left md"> About</h3></a></li>      
+                <li><a href="about.html"><h3 class="text-left md"> About</h3></a></li> -->     
             </ul>
         </div>
     </nav>
 
     <!--Section-One-->
-    <section class="section-one flex">
+    <section class="section-one flex" >
         <div class="container flex">
             <div class="first-box flex">
-                <h1 class="motto text-center lg p-1">Speed Up Your Productivity</h1>      
+               <!-- <h1 class="motto text-center lg ">Speed Up Your Tasks</h1> -->     
             </div>
             <div class="second-box flex">
                 <div class="div block-of-elements column">
@@ -40,24 +40,24 @@
     </section>
 
     <!--Section-Two-->
-    <section class="section-two flex" id="section-two">
+    <section class="section-two flex">
         <div class="container flex">
             <ul id="shortcut-list">
-                <p id="text-content"></p>
+                <p id="text-content">
+                <script>
+                    fetch('assets/text/text.txt')
+                        .then(response => response.text())
+                        .then(text => {
+                            document.getElementById('text-content').textContent = text;
+                        })
+                        .catch(error => console.log('Error:', error));
+                </script>
+                </p>
             </ul>
         </div>
     </section>
 
-    <script>
-        fetch('text.txt')
-            .then(response => response.text())
-            .then(text => {
-                document.getElementById('text-content').textContent = text;
-            })
-            .catch(error => console.log('Error:', error));
-    </script>
-
-
+   
 
 
     <script src="index.js"></script>
