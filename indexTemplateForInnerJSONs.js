@@ -1,11 +1,11 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     var container = document.querySelector('.block-of-elements.column');
-    var menuData = {}; // Object to store the fetched menu data
   
     function createTitles() {
-      var titles = ['Operating Systems', 'Web Browsers', 'Office Suites', 'Code Editors', 'Graphic Design'];
+      var titles = ['Operating Systems', 'Web Browsers', 'Office Suites', 'Code Editors','Graphic Design'];
   
-      titles.forEach(function(title) {
+      titles.forEach(function(title, index) {
         var newDiv = document.createElement('div');
         newDiv.className = 'div element p-1';
   
@@ -20,34 +20,37 @@ document.addEventListener('DOMContentLoaded', function() {
   
     createTitles();
   
-
-
-
-    // Fetch data from API
-    function fetchMenuData(url, category) {
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          menuData[category] = data.appsCollection;
-          createExpandableMenus(category);
-        })
-        .catch(error => console.log('Error:', error));
-    }
+    // Fetch data from JSON files
+    Promise.all([
+      fetch('assets/text/operatingSystems.json').then(response => response.json()),
+      fetch('assets/text/officeSuites.json').then(response => response.json()),
+      fetch('assets/text/webBrowsers.json').then(response => response.json())
+      // Add more fetch requests for other JSON files
+    ])
+      .then(dataArr => {
+        var operatingSystems = dataArr[0].operatingSystems;
+        var officeSuites = dataArr[1].officeSuites;
+        var webBrowsers = dataArr[2].webBrowsers;
+        // Access other data arrays from the response
   
-
-
-
-    // Create expandable menus
-    function createExpandableMenus(category) {
+        createExpandableMenus(operatingSystems, 'Operating Systems');
+        createExpandableMenus(officeSuites, 'Office Suites');
+        createExpandableMenus(webBrowsers, 'Web Browsers');
+        // Create expandable menus for other data arrays
+      })
+      .catch(error => console.log('Error:', error));
+  
+    // New function to create expandable menus
+    function createExpandableMenus(data, category) {
       var div = document.querySelector('.div.element.p-1');
       var expandableMenu = document.createElement('ul');
       expandableMenu.className = 'expandable-menu';
   
-      menuData[category].forEach(function(item) {
+      data.forEach(function(item) {
         var menuItem = document.createElement('li');
         menuItem.textContent = item.name;
         menuItem.addEventListener('click', function(event) {
-          handleMenuItemClick(event, item.shortCutsWithDescription);
+          handleMenuItemClick(event, item.shortcuts);
         });
         expandableMenu.appendChild(menuItem);
       });
@@ -55,8 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
       // Initially hide the expandable menu
       expandableMenu.style.display = 'none';
   
-
-      //DO NOT UNDERSTAND
       var categoryDivs = document.querySelectorAll('.div.element.p-1');
       categoryDivs.forEach(function(div) {
         var title = div.querySelector('.shortcut-title');
@@ -65,8 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
-
-
   
     function toggleExpandableMenu(div) {
       var expandableMenu = div.querySelector('.expandable-menu');
@@ -75,8 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   
-
-
     function handleMenuItemClick(event, shortcuts) {
       var shortcutList = document.getElementById('shortcut-list');
   
@@ -86,29 +83,17 @@ document.addEventListener('DOMContentLoaded', function() {
       // Create new <li> elements for each shortcut
       shortcuts.forEach(function(shortcut) {
         var li = document.createElement('li');
-        li.textContent = shortcut[0] + ': ' + shortcut[1];
+        li.textContent = shortcut.name + ': ' + shortcut.shortcut;
         shortcutList.appendChild(li);
       });
     }
   
-
-
     // Add click event listener to titles
     var titles = document.querySelectorAll('.shortcut-title');
-    titles.forEach(function(title, index) {
+    titles.forEach(function(title) {
       title.addEventListener('click', function() {
         var parentDiv = title.parentElement;
         toggleExpandableMenu(parentDiv);
-  
-        var category = title.textContent;
-        if (menuData[category]) {
-          // If menu data is already fetched, create expandable menus
-          createExpandableMenus(category);
-        } else {
-          // Fetch menu data based on index + 1
-          var url = 'https://localhost:7212/api/SoftWare/' + (index + 1);
-          fetchMenuData(url, category);
-        }
       });
     });
   });

@@ -1,80 +1,57 @@
 {
-    "operatingSystems": [
-      {
-        "name": "Windows",
-        "shortcuts": [
-          {
-            "name": "Copy",
-            "shortcut": "Ctrl + C"
-          },
-          {
-            "name": "Paste",
-            "shortcut": "Ctrl + V"
-          },
-          {
-            "name": "Undo",
-            "shortcut": "Ctrl + Z"
-          },
-          {
-            "name": "Save",
-            "shortcut": "Ctrl + S"
-          },
-          {
-            "name": "Print",
-            "shortcut": "Ctrl + P"
-          }
+  "groupName": "OperatingSystems",
+  "appsCollection": [
+    {
+      "name": "Windows",
+      "shortCutsWithDescription": [
+        [
+          "Open Start Menu",
+          "Win"
+        ],
+        [
+          "Open Task Manager",
+          "Ctrl+Shift+Esc"
+        ],
+        [
+          "Show Desktop",
+          "Win+D"
         ]
-      },
-      {
-        "name": "Linux",
-        "shortcuts": [
-          {
-            "name": "Copy",
-            "shortcut": "Ctrl + Shift + C"
-          },
-          {
-            "name": "Paste",
-            "shortcut": "Ctrl + Shift + V"
-          },
-          {
-            "name": "Undo",
-            "shortcut": "Ctrl + Z"
-          },
-          {
-            "name": "Save",
-            "shortcut": "Ctrl + S"
-          },
-          {
-            "name": "Print",
-            "shortcut": "Ctrl + P"
-          }
+      ]
+    },
+    {
+      "name": "MacOS",
+      "shortCutsWithDescription": [
+        [
+          "Spotlight Search",
+          "Cmd+Space"
+        ],
+        [
+          "Switch between applications",
+          "Cmd+Tab"
+        ],
+        [
+          "Force Quit",
+          "Cmd+Option+Esc"
         ]
-      },
-      {
-        "name": "Mac",
-        "shortcuts": [
-          {
-            "name": "Copy",
-            "shortcut": "Cmd + C"
-          },
-          {
-            "name": "Paste",
-            "shortcut": "Cmd + V"
-          },
-          {
-            "name": "Undo",
-            "shortcut": "Cmd + Z"
-          },
-          {
-            "name": "Save",
-            "shortcut": "Cmd + S"
-          },
-          {
-            "name": "Print",
-            "shortcut": "Cmd + P"
-          }
+      ]
+    },
+    {
+      "name": "Linux",
+      "shortCutsWithDescription": [
+        [
+          "Open Terminal",
+          "Ctrl+Alt+T"
+        ],
+        [
+          "Restart",
+          "Ctrl+Alt+Del"
+        ],
+        [
+          "Lock Screen",
+          "Ctrl+Alt+L"
         ]
-      }
-    ]
-  }
+      ]
+    }
+  ]
+}
   

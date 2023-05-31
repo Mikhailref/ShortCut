@@ -20,9 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
     createTitles();
   
-
-
-
     // Fetch data from API
     function fetchMenuData(url, category) {
       fetch(url)
@@ -34,9 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => console.log('Error:', error));
     }
   
-
-
-
     // Create expandable menus
     function createExpandableMenus(category) {
       var div = document.querySelector('.div.element.p-1');
@@ -55,8 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
       // Initially hide the expandable menu
       expandableMenu.style.display = 'none';
   
-
-      //DO NOT UNDERSTAND
       var categoryDivs = document.querySelectorAll('.div.element.p-1');
       categoryDivs.forEach(function(div) {
         var title = div.querySelector('.shortcut-title');
@@ -65,8 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
     }
-
-
   
     function toggleExpandableMenu(div) {
       var expandableMenu = div.querySelector('.expandable-menu');
@@ -75,8 +65,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   
-
-
     function handleMenuItemClick(event, shortcuts) {
       var shortcutList = document.getElementById('shortcut-list');
   
@@ -91,8 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
   
-
-
     // Add click event listener to titles
     var titles = document.querySelectorAll('.shortcut-title');
     titles.forEach(function(title, index) {
