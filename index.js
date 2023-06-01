@@ -106,7 +106,10 @@ document.addEventListener('DOMContentLoaded', function() {
           createExpandableMenus(category);
         } else {
           // Fetch menu data based on index + 1
-          var url = 'https://localhost:7212/api/SoftWare/' + (index + 1);
+          //var url = 'https://localhost:7212/api/SoftWare/' + (index + 1);
+          var url = 'http://linguafranca-001-site1.dtempurl.com/api/SoftWare/'+ (index + 1);
+          
+
           fetchMenuData(url, category);
         }
       });
