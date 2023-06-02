@@ -88,6 +88,16 @@ i{
 }
 
 
+h2, ul, li {
+    -webkit-touch-callout: none; /* Disable iOS touch callout */
+    -webkit-user-select: none; /* Disable text selection in webkit browsers */
+    -moz-user-select: none; /* Disable text selection in Firefox */
+    -ms-user-select: none; /* Disable text selection in Internet Explorer/Edge */
+    user-select: none; /* Disable text selection in other browsers */
+  }
+  
+
+
 /*Elements*/
 
 /*.watsapp{
