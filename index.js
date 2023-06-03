@@ -82,12 +82,16 @@ document.addEventListener('DOMContentLoaded', function() {
   
       // Clear the existing content
       shortcutList.innerHTML = '';
-  
+       
+      var index=1;
       // Create new <li> elements for each shortcut
       shortcuts.forEach(function(shortcut) {
+        
         var li = document.createElement('li');
-        li.textContent = shortcut[0] + ': ' + shortcut[1];
+        li.className = 'shortcuts';
+        li.textContent =index + ') ' + shortcut[0] + ': ' + shortcut[1];
         shortcutList.appendChild(li);
+        index++;
       });
     }
   
