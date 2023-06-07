@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         newDiv.className = 'div element p-1';
   
         var newH2 = document.createElement('h2');
-        newH2.className = 'shortcut-title text-left';
+        newH2.className = 'shortcut-group-title';
         newH2.textContent = title;
   
         newDiv.appendChild(newH2);
@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
       menuData[category].forEach(function(item) {
         var menuItem = document.createElement('li');
+        menuItem.className = 'App';
         menuItem.textContent = item.name;
         menuItem.addEventListener('click', function(event) {
           handleMenuItemClick(event, item.shortCutsWithDescription);
@@ -59,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
       //DO NOT UNDERSTAND
       var categoryDivs = document.querySelectorAll('.div.element.p-1');
       categoryDivs.forEach(function(div) {
-        var title = div.querySelector('.shortcut-title');
+        var title = div.querySelector('.shortcut-group-title');
         if (title && title.textContent === category) {
           div.appendChild(expandableMenu);
         }
@@ -81,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
       var shortcutList = document.getElementById('shortcut-list');
   
       // Clear the existing content
-      shortcutList.innerHTML = '';
+      shortcutList.innerHTML = ' ';
        
       var index=1;
       // Create new <li> elements for each shortcut
@@ -98,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // Add click event listener to titles
-    var titles = document.querySelectorAll('.shortcut-title');
+    var titles = document.querySelectorAll('.shortcut-group-title');
     titles.forEach(function(title, index) {
       title.addEventListener('click', function() {
         var parentDiv = title.parentElement;

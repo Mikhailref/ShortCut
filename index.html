@@ -7,62 +7,93 @@
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="utilities.css">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
 </head>
 <body>
-    <!--Navigation-->
-    <nav class="navigation flex">
+      <!--Navigation-->
+      <nav class="navigation flex">
         <div class="navbar container flex">
-            <div class="logo column">
-                <h3 class="name text-left xl">ShortCut</h3>
+            <div class="logo px-3">
+                <h3 class="name text-left lg">ShortCut</h3>
             </div>
-            <ul class="links flex">
-                <!--<li><a href="index.html"><h3 class="text-left md"> Home</h3></a></li>
+           <!-- <ul class="links flex">
+                <li><a href="index.html"><h3 class="text-left md"> Home</h3></a></li>
                 <li><a href="gallery.html"><h3 class="text-left md">Gallery</h3></a></li>
-                <li><a href="about.html"><h3 class="text-left md"> About</h3></a></li> -->     
-            </ul>
+                <li><a href="about.html"><h3 class="text-left md"> About</h3></a></li>     
+            </ul>--> 
         </div>
     </nav>
 
-    <!--Section-One-->
-    <section class="section-one flex" >
-        <div class="container flex">
-            <div class="first-box flex">
-               <!-- <h1 class="motto text-center lg ">Speed Up Your Tasks</h1> -->     
-            </div>
-            <div class="second-box flex">
-                <div class="div block-of-elements column">
-                    <!--<div class="div element p-1"><h2 class="shortcut-title text-center">Windows ShortCuts</h2></div>-->
+        <!--Section-One-->
+        <section class="section-one flex" >
+            <div class="container flex">
+                <div class="first-box px-1">
+                   <!-- <h1 class="motto text-center lg ">Speed Up Your Tasks</h1> -->  
+                    <ul id="shortcut-list">
+                      <p id="text-content">
+                       <script>
+                        fetch('assets/text/text.txt')
+                            .then(response => response.text())
+                            .then(text => {
+                                document.getElementById('text-content').textContent = text;
+                            })
+                            .catch(error => console.log('Error:', error));
+                        </script>
+                        </p>
+                    </ul>   
+                </div>
+                <div class="second-box flex">
+                    <div class="div block-of-elements column">
+                        <!--<div class="div element p-1"><h2 class="shortcut-group-title text-center">Windows ShortCuts</h2></div>-->
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
-
-    <!--Section-Two-->
-    <section class="section-two flex">
-        <div class="container flex">
-            <ul id="shortcut-list">
-                <p id="text-content">
+        <!--Footer-->
+        <footer class="footer flex my-1">
+            <div class="container flex ">
+                <div class="footer-section ">
+                    <ul>
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section ">
+                    <p>Email: info@example.com</p>
+                    <p>Phone: 123-456-7890</p>
+                    <p>Address: 123 Main Street, City</p>
+                </div>
+                <div class="footer-section ">
+                    <ul class="social-media">
+                      <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                      <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                      <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>  
+                <div class="footer-section ">
+                    <p>Read our <a href="#">Privacy Policy</a> for more information.</p>
+                    <p>By using this website, you agree to our <a href="#">Terms of Service</a>.</p>
+                </div>
+                <div class="footer-section ">
+                <p id="current-date"></p> 
                 <script>
-                    fetch('assets/text/text.txt')
-                        .then(response => response.text())
-                        .then(text => {
-                            document.getElementById('text-content').textContent = text;
-                        })
-                        .catch(error => console.log('Error:', error));
+                   var currentDate = new Date();
+                   var day = currentDate.getDate();
+                   var month = currentDate.getMonth() + 1; 
+                   var year = currentDate.getFullYear();
+                   var formattedDate = day + '.' + month + '.' + year;
+                   var dateElement = document.getElementById('current-date');
+                   dateElement.textContent =formattedDate;
                 </script>
-                </p>
-            </ul>
-        </div>
+                </div>
+            </div>
+          </footer>
+          
 
-  
-    </section>
-
-
-    <script src="index.js"></script>
+          <script src="index.js"></script>
+          <script src="settings.js"></script>
 </body>
- 
 </html>
