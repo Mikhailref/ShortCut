@@ -116,8 +116,7 @@ h2, ul, li {
     /*text-shadow: 1px 1px var(--light-color);*/
     text-shadow: 2px 3px rgba(7, 7, 7, 0.532);
 
-}
-
+  }
 
 
   /*Section-One*/
@@ -133,6 +132,20 @@ h2, ul, li {
   .section-one .container .first-box{
    flex-shrink: 1;
    flex-basis: 65%;
+  }
+
+  .section-one .container .first-box .shortcuts{
+    color: #c0bfbf;
+  }
+
+  .section-one .container .first-box .description{
+    font-weight: bolder;
+    padding-left: 10px;
+    color: #ffffff;
+  }
+
+  .section-one .container .first-box .search{
+    margin-top: 40px;
   }
 
   .section-one .container .second-box{
